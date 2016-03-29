@@ -53,7 +53,7 @@ timesync_pre_main() {
    sleep 2 &
    wait "$!"
 
-   if [ -d /usr/share/whonix ]; then
+   if [ -f /usr/share/whonix/marker ]; then
       source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
       ## returns: TOR_ENABLED
       check_tor_enabled_do ## /usr/lib/anon-shared-helper-scripts/tor_enabled_check

@@ -56,7 +56,7 @@ timesync_main() {
    sleep 2 &
    wait "$!"
 
-   if [ -d /usr/share/whonix ]; then
+   if [ -f /usr/share/whonix/marker ]; then
       local WHONIX_HOMEPAGE="https://www.whonix.org"
       local MSG="<p>Whonix is produced independently of, with no guarantee from, The Tor Project. Whonix is experimental software. \
 Do not rely on it for strong anonymity. <a href=$WHONIX_HOMEPAGE>$WHONIX_HOMEPAGE</a></p>"
@@ -64,7 +64,7 @@ Do not rely on it for strong anonymity. <a href=$WHONIX_HOMEPAGE>$WHONIX_HOMEPAG
       $output ${output_opts[@]} --messagecli --typecli "info" --message "$MSG"
    fi
 
-   if [ -d /usr/share/whonix ]; then
+   if [ -f /usr/share/whonix/marker ]; then
       source /usr/lib/anon-shared-helper-scripts/tor_enabled_check
       check_tor_enabled_do ## /usr/lib/anon-shared-helper-scripts/tor_enabled_check
    fi

@@ -59,7 +59,7 @@ check_sdwdate_status() {
 check_sdwdate() {
    trap "error_handler" ERR
 
-   if [ -d /usr/share/whonix ]; then
+   if [ -f /usr/share/whonix/marker ]; then
       local HELPTEXT="<p>See logfile: tail -f -n 20 /var/log/sdwdate.log
 <br></br>See status files: cd /var/run/sdwdate && dir
 <br></br>Try again: <blockquote>Start menu -> Applications -> System -> Timesync
@@ -174,7 +174,7 @@ check_sdwdate() {
          ## sdwdate done, but no success. The clock is sane. This should rarely happen,
          ## only in case the internet connection was down at this point.
          check_sdwdate_terminate_tail
-         if [ -d /usr/share/whonix ]; then
+         if [ -f /usr/share/whonix/marker ]; then
             local MSG="<p><b>Network Time Synchronization (timesync) done, but no success!!!</b>
 <br></br>Is your internet connection down?</p>
 
